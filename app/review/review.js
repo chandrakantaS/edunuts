@@ -1,6 +1,5 @@
 import sequelize from '../connection/mysql';
 import Sequelize from 'sequelize';
-import U from '../user/user';
 
 const Review = sequelize.define(
   'review',

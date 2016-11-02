@@ -1,10 +1,7 @@
 import sequelize from '../connection/mysql';
 import Sequelize from 'sequelize';
-import Review from '../review/review';
 
-let User;
-
-User = sequelize.define('user', {
+export default sequelize.define('user', {
   uuid: {
     type: Sequelize.INTEGER,
     primaryKey: true,
@@ -42,6 +39,3 @@ User = sequelize.define('user', {
     }
   }
 });
-
-User.hasMany(Review, {as: 'reviews', foreignKey: 'user_id'});
-export default User;

@@ -2,7 +2,7 @@ import sequelize from '../connection/mysql';
 import Sequelize from 'sequelize';
 
 export default sequelize.define(
-  'tutor',
+  'expertise',
   {
     id: {
       type: Sequelize.INTEGER,
@@ -14,7 +14,7 @@ export default sequelize.define(
   },
   {
     tableName: 'tutor_expertise',
-    createdAt: 'added_at',
-    updatedAt: 'updated_at'
+    createdAt: false,
+    updatedAt: false
   }
 );

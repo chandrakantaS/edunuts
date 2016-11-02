@@ -2,12 +2,13 @@ import sequelize from '../connection/mysql';
 import Sequelize from 'sequelize';
 
 export default sequelize.define(
-  'tutor',
+  'location',
   {
     id: {
       type: Sequelize.INTEGER,
       field: 'id',
-      primaryKey: true
+      primaryKey: true,
+      autoIncrement: true
     },
     tutorId: {
       type: Sequelize.INTEGER,
@@ -36,7 +37,7 @@ export default sequelize.define(
   },
   {
     tableName: 'tutor_locations',
-    createdAt: 'added_at',
-    updatedAt: 'updated_at'
+    createdAt: 'created_at',
+    updatedAt: false
   }
 );

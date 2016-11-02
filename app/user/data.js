@@ -2,23 +2,22 @@ import sequelize from '../connection/mysql';
 import Sequelize from 'sequelize';
 
 export default sequelize.define(
-  'profile',
+  'data',
   {
     id: {
       type: Sequelize.INTEGER,
-      field: 'tutor_id',
+      field: 'id',
       primaryKey: true
     },
-    location: Sequelize.STRING,
-    locationId: {
+    user_id: {
       type: Sequelize.INTEGER,
-      field: 'location_id'
+      field: 'fee_session'
     },
-    latitude: Sequelize.STRING,
-    longitude: Sequelize.STRING
+    name: Sequelize.STRING,
+    value: Sequelize.STRING
   },
   {
-    tableName: 'tutor_profile',
+    tableName: 'user_data',
     createdAt: false,
     updatedAt: false
   }

@@ -1,25 +1,30 @@
 import sequelize from '../connection/mysql';
 import Sequelize from 'sequelize';
+import Exp from './expertise';
 
 export default sequelize.define(
-  'tutor',
+  'class',
   {
-    id: {
+    tutorId: {
       type: Sequelize.INTEGER,
-      field: 'tutor_id'
+      field: 'tutor_id',
+      primaryKey: true,
+      autoIncrement: true
     },
     class: {
       type: Sequelize.STRING,
-      field: 'cass_id'
+      field: 'class_id'
     },
     amount: Sequelize.INTEGER,
     session: Sequelize.STRING,
     level: Sequelize.INTEGER,
-    expertise: Sequelize.TEXT
+    experties: {
+      type: Sequelize.TEXT,
+    }
   },
   {
     tableName: 'tutor_classes',
-    createdAt: 'added_at',
-    updatedAt: 'updated_at'
+    createdAt: false,
+    updatedAt: false
   }
 );

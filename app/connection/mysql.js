@@ -1,6 +1,7 @@
 import Sequelize from 'sequelize';
+import '../../lib/paginate';
 
-var log = console.log.bind(console);
+const log = console.log.bind(console);
 const sequelize = new Sequelize(
   process.env.MYSQL_DB || 'edunuts1',
   process.env.MYSQL_USER || 'edunuts',
