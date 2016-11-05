@@ -1,8 +1,13 @@
 import Sequelize from 'sequelize';
 import '../../lib/paginate';
-// import '../../lib/sequelizeSearch';
+import '../../lib/sequelizeSearch';
+import Logger from '../../lib/logger';
 
-const log = console.log.bind(console);
+const log = new Logger(__filename);
+
+console.log(process.env.MYSQL_DB);
+
+// const log = console.log.bind(console);
 const sequelize = new Sequelize(
   process.env.MYSQL_DB || 'edunuts1',
   process.env.MYSQL_USER || 'edunuts',
@@ -17,10 +22,10 @@ const sequelize = new Sequelize(
     }
   }
 );
-sequelize.authenticate().then(function(err) {
-  log('Connected to sql');
-}).catch(function(err) {
-  log('Unable to connect', err);
+sequelize.authenticate().then(() => {
+  log.info('Connected to sql');
+}).catch((err) => {
+  log.error('Unable to connect', err);
 });
 
 export default sequelize;

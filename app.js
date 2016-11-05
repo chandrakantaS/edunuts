@@ -1,15 +1,16 @@
 import express from 'express';
 import session from 'express-session';
 import bodyParser from 'body-parser';
-import routes from './routes';
 import dotenv from 'dotenv';
 import Logger from './lib/logger';
+
+import routes from './routes';
+import './lib/myglobals';
 
 const log = new Logger(__filename);
 const app = express(),
   dbHost = process.env.DB_MONGO || 'mongodb://localhost/edunuts';
 
-dotenv.config({silent:true});
 app.use(bodyParser.json());
 app.use(session({secret: process.env.SESSION_SECRET}));
 

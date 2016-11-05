@@ -2,7 +2,7 @@ import sequelize from '../connection/mysql';
 import Sequelize from 'sequelize';
 
 export default sequelize.define('user', {
-  uuid: {
+  id: {
     type: Sequelize.INTEGER,
     primaryKey: true,
     field: 'user_id',
@@ -20,12 +20,13 @@ export default sequelize.define('user', {
   type: {
     field: 'user_type',
     type: Sequelize.STRING,
-    defaultValue: 'tr'
+    defaultValue: 'st'
   },
   email: {
     field: 'email',
     type: Sequelize.STRING
-  }
+  },
+  mobile: Sequelize.STRING
 
 }, {
   tableName: 'user_main',
@@ -44,8 +45,8 @@ export default sequelize.define('user', {
     }
   },
   instanceMethods: {
-    toJSON: function() {
-      var d = Object.assign({}, this.get());
+    toJSON() {
+      const d = Object.assign({}, this.get());
       delete d.password;
       return d;
     }

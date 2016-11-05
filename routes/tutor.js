@@ -23,15 +23,13 @@ function getAllTutors(req, res) {
       }
     };
     or.push({
-      username: { $or: [
-        { $like: req.query.q + '%' },
-        { $like: '% ' + req.query.q + '%' },
-      ] }
+      username: {
+        $search: req.query.q
+      }
     }, {
-      full_name: { $or: [
-        { $like: req.query.q + '%' },
-        { $like: '% ' + req.query.q + '%' },
-      ] }
+      full_name: {
+        $search: req.query.q
+      }
     });
   }
 
