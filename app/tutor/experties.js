@@ -2,7 +2,7 @@ import sequelize from '../connection/mysql';
 import Sequelize from 'sequelize';
 
 export default sequelize.define(
-  'data',
+  'experties',
   {
     id: {
       type: Sequelize.INTEGER,
@@ -10,15 +10,14 @@ export default sequelize.define(
       primaryKey: true,
       autoIncrement: true
     },
-    userId: {
-      type: Sequelize.INTEGER,
-      field: 'user_id'
-    },
     name: Sequelize.STRING,
-    value: Sequelize.STRING
+    tutorId: {
+      type: Sequelize.INTEGER,
+      field: 'tutor_id'
+    }
   },
   {
-    tableName: 'user_data',
+    tableName: 'tutor_experties',
     createdAt: false,
     updatedAt: false
   }

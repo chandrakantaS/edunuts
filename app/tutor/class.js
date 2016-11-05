@@ -1,6 +1,6 @@
 import sequelize from '../connection/mysql';
 import Sequelize from 'sequelize';
-import Exp from './expertise';
+// import Exp from './expertise';
 
 export default sequelize.define(
   'class',

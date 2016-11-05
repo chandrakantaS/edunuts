@@ -1,18 +1,26 @@
 import sequelize from '../connection/mysql';
 import Sequelize from 'sequelize';
 
-const Review = sequelize.define(
+export default sequelize.define(
   'review',
   {
-    reviewId: {
+    id: {
       type: Sequelize.INTEGER,
       field: 'review_id',
       primaryKey: true,
       autoIncrement: true
     },
-    ipAddr: {
+    userId: {
+      type: Sequelize.INTEGER,
+      field: 'user_id'
+    },
+    ipAdde: {
       type: Sequelize.STRING,
       field: 'ip_addr'
+    },
+    intId: {
+      type: Sequelize.INTEGER,
+      field: 'inst_id'
     },
     rating: Sequelize.DECIMAL,
     title: Sequelize.STRING,
@@ -21,17 +29,15 @@ const Review = sequelize.define(
       field: 'review_text'
     },
     reviewStatus: {
-      type: Sequelize.ENUM('0', '1', 't'),
+      type: Sequelize.ENUM,
       field: 'review_status'
     },
     details: Sequelize.TEXT,
-    type: Sequelize.ENUM('course', 'institute', 'tutor', 'partner')
+    type: Sequelize.ENUM
   },
   {
     tableName: 'user_review',
-    createdAt: 'added_at',
-    updatedAt: 'updated_at'
+    createdAt: false,
+    updatedAt: false
   }
 );
-
-export default Review;

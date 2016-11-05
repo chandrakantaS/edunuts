@@ -34,8 +34,20 @@ export default sequelize.define('user', {
   scopes: {
     tutors: {
       where: {
-        'type': 'tr'
+        type: 'tr'
+      }
+    },
+    students: {
+      where: {
+        type: [ 'pt', 'st' ]
       }
     }
-  }
+  },
+  instanceMethods: {
+    toJSON: function() {
+      var d = Object.assign({}, this.get());
+      delete d.password;
+      return d;
+    }
+  },
 });

@@ -1,5 +1,6 @@
 import Sequelize from 'sequelize';
 import '../../lib/paginate';
+// import '../../lib/sequelizeSearch';
 
 const log = console.log.bind(console);
 const sequelize = new Sequelize(

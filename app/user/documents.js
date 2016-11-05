@@ -2,7 +2,7 @@ import sequelize from '../connection/mysql';
 import Sequelize from 'sequelize';
 
 export default sequelize.define(
-  'data',
+  'documents',
   {
     id: {
       type: Sequelize.INTEGER,
@@ -14,11 +14,12 @@ export default sequelize.define(
       type: Sequelize.INTEGER,
       field: 'user_id'
     },
-    name: Sequelize.STRING,
-    value: Sequelize.STRING
+    type: Sequelize.STRING,
+    doc: Sequelize.STRING,
+    status: Sequelize.ENUM('0', '1')
   },
   {
-    tableName: 'user_data',
+    tableName: 'user_documents',
     createdAt: false,
     updatedAt: false
   }

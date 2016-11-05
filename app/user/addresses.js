@@ -2,23 +2,21 @@ import sequelize from '../connection/mysql';
 import Sequelize from 'sequelize';
 
 export default sequelize.define(
-  'data',
+  'addresses',
   {
-    id: {
-      type: Sequelize.INTEGER,
-      field: 'id',
-      primaryKey: true,
-      autoIncrement: true
-    },
     userId: {
       type: Sequelize.INTEGER,
-      field: 'user_id'
+      field: 'user_id',
+      primaryKey: true
     },
+    group: Sequelize.STRING
     name: Sequelize.STRING,
-    value: Sequelize.STRING
+    type: Sequelize.STRING,
+    value: Sequelize.STRING,
+    status: Sequelize.ENUM
   },
   {
-    tableName: 'user_data',
+    tableName: 'user_addresses',
     createdAt: false,
     updatedAt: false
   }

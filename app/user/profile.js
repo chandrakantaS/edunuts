@@ -7,7 +7,8 @@ export default sequelize.define(
     id: {
       type: Sequelize.INTEGER,
       field: 'id',
-      primaryKey: true
+      primaryKey: true,
+      autoIncrement: true
     },
     website: Sequelize.STRING,
     company: Sequelize.STRING,
@@ -26,7 +27,15 @@ export default sequelize.define(
       type: Sequelize.STRING,
       field: 'profile_picture'
     },
-    active: 
+    active: Sequelize.INTEGER,
+    confirmedAt: {
+      type: Sequelize.DATE,
+      field: 'confirmed_at'
+    },
+    title: Sequelize.ENUM,
+    gender: Sequelize.ENUM,
+    dob: Sequelize.DATEONLY,
+    about: Sequelize.TEXT
   },
   {
     tableName: 'user_profile',

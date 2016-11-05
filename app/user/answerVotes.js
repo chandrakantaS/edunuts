@@ -2,23 +2,22 @@ import sequelize from '../connection/mysql';
 import Sequelize from 'sequelize';
 
 export default sequelize.define(
-  'data',
+  'answer',
   {
-    id: {
-      type: Sequelize.INTEGER,
-      field: 'id',
-      primaryKey: true,
-      autoIncrement: true
-    },
     userId: {
       type: Sequelize.INTEGER,
-      field: 'user_id'
+      field: 'user_id',
+      primaryKey: true
     },
-    name: Sequelize.STRING,
-    value: Sequelize.STRING
+    answerId: {
+      type: Sequelize.INTEGER,
+      field: 'answer_id',
+      primaryKey: true
+    },
+    vote: Sequelize.INTEGER
   },
   {
-    tableName: 'user_data',
+    tableName: 'user_answer_votes',
     createdAt: false,
     updatedAt: false
   }

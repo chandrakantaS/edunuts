@@ -14,7 +14,7 @@ export default sequelize.define(
       type: Sequelize.INTEGER,
       field: 'tutor_id'
     },
-    name:Sequelize.STRING,
+    name: Sequelize.STRING,
     colonyId: {
       type: Sequelize.INTEGER,
       field: 'colony_id'
